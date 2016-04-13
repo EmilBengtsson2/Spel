@@ -1,6 +1,5 @@
-import java.awt.Graphics;
 
-public class AnimateEntity {
+public abstract class AnimateEntity {
 	
 	protected double speed;
 	protected Position position;
@@ -10,5 +9,7 @@ public class AnimateEntity {
 		position = new Position(x, y);
 	}
 	
-	public void paint(Graphics g) {}
+	public Position getPosition() {
+		return position;
+	}
 }

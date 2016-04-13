@@ -6,6 +6,7 @@ public class EntityController {
 	
 	public EntityController(PlayerListener listener) {
 		player = new Player(1.5, 600, 450, listener);
+		player.setWeapon(new Sword(player));
 	}
 	
 	public void update() {

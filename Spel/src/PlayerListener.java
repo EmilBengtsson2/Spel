@@ -26,6 +26,10 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 	public int getVerticalMult() {
 		return verticalMult;
 	}
+	
+	public Position getMousePos() {
+		return mousePos;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -45,6 +49,8 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
+		mousePos.setX(e.getX());
+		mousePos.setY(e.getY());
 		mouseDown = true;
 	}
 

@@ -6,7 +6,7 @@ public class Engine implements Runnable {
 	private EntityController entity;
 	private PlayerListener listener;
 	private boolean running;
-	private final int FPS_CAP = 180;
+	private final int FPS_CAP = 150;
 	private int fps;
 	
 	public Engine (Display display) {
@@ -18,6 +18,8 @@ public class Engine implements Runnable {
 
 	public void start() {
 		display.addKeyListener(listener);
+		display.addMouseMotionListener(listener);
+		display.addMouseListener(listener);
 		display.requestFocus();
 		fps = 0;
 		running = true;
