@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class Sword implements Weapon {
@@ -23,8 +22,7 @@ public class Sword implements Weapon {
 	}
 	
 	@Override
-	public void Animation(Graphics g) {
-		// TODO Auto-generated method stub
+	public void Animation(Graphics2D g2d) {
 		
 	}
 

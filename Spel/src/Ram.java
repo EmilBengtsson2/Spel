@@ -1,3 +1,5 @@
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 
 public class Ram extends JFrame{
@@ -8,16 +10,19 @@ public class Ram extends JFrame{
 	private Engine engine;
 	
 	private final int WIDTH = 1200, HEIGHT = 900;
+	private String title;
 	
 	public Ram () {
+		
+		title = "Fönstrets namn";
 		
 		//"Målarduken"
 		display = new Display(WIDTH, HEIGHT);
 		
 		//I denna klassen finns "gameloopen"
-		engine = new Engine(display);
+		engine = new Engine(display, this);
 		
-		this.setTitle("Fönstrets namn");
+		this.setTitle(title);
 		// !!VIKTIGT!! Detta gör så att programmet inte fortsätter köra i bakgrunden när man stänger ner det
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//lägger in "målarduken"
@@ -32,6 +37,16 @@ public class Ram extends JFrame{
 		
 		display.setup();
 		engine.start();
+	}
+	
+	public void setFullscreen(boolean fullscreen) {
+		if(fullscreen) {
+			this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		} else {
+			display.setSize(WIDTH, HEIGHT);
+			this.pack();
+			this.setLocationRelativeTo(null);
+		}
 	}
 
 	public static void main(String[] args) {

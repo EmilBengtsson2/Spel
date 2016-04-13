@@ -7,7 +7,7 @@ public interface Weapon {
 	
 	public int getRange();
 	
-	public void Animation(Graphics g);
+	public void Animation(Graphics2D g2d);
 	
 	public void paint(Graphics2D g2d);
 }

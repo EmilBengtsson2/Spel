@@ -9,8 +9,12 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 	private boolean mouseDown, left, right, up, down;
 	private int horizontalMult, verticalMult;
 	private Position mousePos;
+	private Engine engine;
+	private boolean fullscreen;
 	
-	public PlayerListener() {
+	public PlayerListener(Engine engine) {
+		this.engine = engine;
+		fullscreen = false;
 		horizontalMult = verticalMult = 0;
 		mousePos = new Position(0, 0);
 	}
@@ -86,13 +90,21 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 		} else if(e.getKeyCode() == KeyEvent.VK_S) {
 			down = true;
 			verticalMult = 1;
-		} if(e.getKeyCode() == KeyEvent.VK_A) {
+		} else if(e.getKeyCode() == KeyEvent.VK_A) {
 			left = true;
 			horizontalMult = -1;
 		} else if(e.getKeyCode() == KeyEvent.VK_D) {
 			right = true;
 			horizontalMult = 1;
+		} else if(e.getKeyCode() == KeyEvent.VK_F11) {
+			if(fullscreen)
+				fullscreen = false;
+			else
+				fullscreen = true;
+			engine.setFullscreen(fullscreen);
 		}
+		
+		
 	}
 
 	@Override

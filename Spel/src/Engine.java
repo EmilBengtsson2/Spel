@@ -1,7 +1,9 @@
+import java.awt.Toolkit;
 
 public class Engine implements Runnable {
 	
 	private Thread t;
+	private Ram ram;
 	private Display display;
 	private EntityController entity;
 	private PlayerListener listener;
@@ -9,10 +11,11 @@ public class Engine implements Runnable {
 	private final int FPS_CAP = 150;
 	private int fps;
 	
-	public Engine (Display display) {
+	public Engine (Display display, Ram ram) {
 		this.display = display;
+		this.ram = ram;
 		t = new Thread(this);
-		listener = new PlayerListener();
+		listener = new PlayerListener(this);
 		entity = new EntityController(listener);
 	}
 
@@ -24,6 +27,11 @@ public class Engine implements Runnable {
 		fps = 0;
 		running = true;
 		t.start();
+	}
+	
+	public void setFullscreen(boolean fullscreen) {
+		ram.setFullscreen(fullscreen);
+		display.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 	}
 
 	@Override
