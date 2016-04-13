@@ -32,9 +32,9 @@ public class Engine implements Runnable {
 		double minCycleTime = Math.pow(10, 9) / FPS_CAP;
 		int fpsCounter = 0;
 		while(running) {
-			if(System.currentTimeMillis() - fpsTime > 250) {
+			if(System.currentTimeMillis() - fpsTime > 500) {
 				fpsTime = System.currentTimeMillis();
-				fps = fpsCounter * 4;
+				fps = fpsCounter * 2;
 				fpsCounter = 0;
 			}
 			fpsCounter++;

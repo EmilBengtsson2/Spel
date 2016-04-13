@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public interface Weapon {
 	
@@ -8,5 +9,5 @@ public interface Weapon {
 	
 	public void Animation(Graphics g);
 	
-	public void paint(Graphics g);
+	public void paint(Graphics2D g2d);
 }
