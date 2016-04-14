@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 
 public abstract class AnimateEntity {
 	
@@ -12,4 +13,7 @@ public abstract class AnimateEntity {
 	public Position getPosition() {
 		return position;
 	}
+	public abstract void action();
+	
+	public abstract void paint(Graphics g);
 }

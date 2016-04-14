@@ -26,13 +26,13 @@ public class Player extends AnimateEntity {
 	public boolean getMouseDown() {
 		return listener.getMouseDown();
 	}
-	
+	@Override
 	public void action() {
 		position.setX(position.getX() + speed * listener.getHorizontalMult());
 		position.setY(position.getY() + speed * listener.getVerticalMult());
-		mousePos = listener.getMousePos();
+		mousePos = listener.getMousePos();		
 	}
-	
+	@Override
 	public void paint(Graphics g) {
 		double x = position.getX();
 		double y = position.getY();
@@ -61,5 +61,5 @@ public class Player extends AnimateEntity {
 		g2d.fillRect((int)position.getX()-20, (int)position.getY()-20, 40, 40);
 		
 		g2d.dispose();
-	}
+	}	
 }
