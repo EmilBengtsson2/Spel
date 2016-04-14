@@ -28,6 +28,7 @@ public class Display extends Canvas{
 				g.fillRect(0, 0, this.getWidth(), this.getHeight());
 				//////////////////////////////////////////////////////////////////////////////
 				
+				//Ritar allt som inte är bakgrunden (spelare, så småning om npcs kanske, osv.)
 				entity.paintEntity(g);
 				
 				g.setColor(Color.BLACK);
