@@ -9,6 +9,7 @@ public class Player extends AnimateEntity {
 	private PlayerListener listener;
 	private Position mousePos;
 	private Weapon weapon;
+	private double rotation;
 	
 	public Player(double speed, int x, int y, PlayerListener listener) {
 		super(speed, x, y);
@@ -27,6 +28,14 @@ public class Player extends AnimateEntity {
 	public boolean getMouseDown() {
 		return listener.getMouseDown();
 	}
+	
+	/**
+	 * @return rotation in radians
+	 */
+	public double getRotation() {
+		return rotation;
+	}
+	
 	@Override
 	public void action() {
 		position.setX(position.getX() + speed * listener.getHorizontalMult());
@@ -46,16 +55,25 @@ public class Player extends AnimateEntity {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		g2d.rotate(Math.PI/2, x, y);
-		if(mY < y)
-			if(mX > x)
+		rotation = Math.PI/2;
+		
+		if(mY < y) {
+			if(mX > x) {
 				g2d.rotate(-Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2))), x, y);
-			else
+				rotation += -Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2)));
+			} else {
 				g2d.rotate(Math.PI + Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2))), x, y);
-		else
-			if(mX > x)
+				rotation += Math.PI + Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2)));
+			}
+		} else {
+			if(mX > x) {
 				g2d.rotate(Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2))), x, y);
-			else
+				rotation += Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2)));
+			} else {
 				g2d.rotate(Math.PI-Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2))), x, y);
+				rotation += Math.PI-Math.acos((Math.abs(mX-(x)))/Math.sqrt(Math.pow(y-mY, 2) + Math.pow(mX-(x), 2)));
+			}
+		}
 		
 		if(weapon != null)
 			weapon.paint(g2d);

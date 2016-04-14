@@ -31,13 +31,15 @@ public class Sword implements Weapon {
 	public int getRange() {
 		return RANGE;
 	}
-	
+		
 	@Override
 	public void hit() {
-		ArrayList<AnimateEntity> entities = entity.getMeleeHits(new Arc2D.Double(player.getPosition().getX()+xDislocation+5, player.getPosition().getY()-20, RANGE * 2, RANGE * 2, Math.toDegrees(-Math.PI/3), Math.toDegrees(Math.PI/3 * 2), Arc2D.PIE));
+		Arc2D.Double arc = new Arc2D.Double(player.getPosition().getX()-(RANGE + 15), player.getPosition().getY()-(RANGE + 15), (RANGE + 15) * 2, (RANGE + 15) * 2, Math.toDegrees(-Math.PI/3 + Math.PI/2 - player.getRotation()), Math.toDegrees(Math.PI/3 * 2), Arc2D.PIE);
+		ArrayList<AnimateEntity> entities = entity.getMeleeHits(arc);
 		for(AnimateEntity ae : entities) {
-			System.out.println(ae.getPosition() + "nisse");
+			System.out.println("Träff på: (" + ae.getPosition().getX() + ", " + ae.getPosition().getY() + ")");
 		}
+		System.out.println("-----------------------------------------------------------------------");
 	}
 	
 	@Override
@@ -49,8 +51,8 @@ public class Sword implements Weapon {
 					animation++;
 				else
 					animation--;
+				hit();
 			}
-			
 			if(animation > 0) {
 				theta += dTheta;
 				xDislocation += 1;
