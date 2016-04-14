@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.geom.Arc2D.Double;
 
 public class Player extends AnimateEntity {
 	
@@ -30,7 +31,9 @@ public class Player extends AnimateEntity {
 	public void action() {
 		position.setX(position.getX() + speed * listener.getHorizontalMult());
 		position.setY(position.getY() + speed * listener.getVerticalMult());
-		mousePos = listener.getMousePos();		
+		mousePos = listener.getMousePos();
+		if(listener.getMouseDown())
+			weapon.Animation();
 	}
 	@Override
 	public void paint(Graphics g) {
@@ -61,5 +64,5 @@ public class Player extends AnimateEntity {
 		g2d.fillRect((int)position.getX()-20, (int)position.getY()-20, 40, 40);
 		
 		g2d.dispose();
-	}	
+	}
 }

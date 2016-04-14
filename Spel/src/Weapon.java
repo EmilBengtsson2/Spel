@@ -8,6 +8,8 @@ public interface Weapon {
 	
 	public int getRange();
 	
+	public void hit();
+	
 	public void Animation();
 	
 	public void paint(Graphics2D g2d);

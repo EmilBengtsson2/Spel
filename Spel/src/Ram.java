@@ -39,6 +39,7 @@ public class Ram extends JFrame{
 		engine.start();
 	}
 	
+	//Fullskärm (typ)
 	public void setFullscreen(boolean fullscreen) {
 		if(fullscreen) {
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.geom.Arc2D;
+import java.util.ArrayList;
 
 public class Sword implements Weapon {
 	
@@ -10,9 +12,11 @@ public class Sword implements Weapon {
 	private double theta;
 	private final double dTheta = Math.PI / 3 / 10 * 2;
 	private Player player;
+	private EntityController entity;
 	
-	public Sword(Player player) {
+	public Sword(Player player, EntityController entity) {
 		this.player = player;
+		this.entity = entity;
 		theta = -Math.PI/3;
 		xDislocation = -10;
 		animation = 0;
@@ -26,6 +30,14 @@ public class Sword implements Weapon {
 	@Override
 	public int getRange() {
 		return RANGE;
+	}
+	
+	@Override
+	public void hit() {
+		ArrayList<AnimateEntity> entities = entity.getMeleeHits(new Arc2D.Double(player.getPosition().getX()+xDislocation+5, player.getPosition().getY()-20, RANGE * 2, RANGE * 2, Math.toDegrees(-Math.PI/3), Math.toDegrees(Math.PI/3 * 2), Arc2D.PIE));
+		for(AnimateEntity ae : entities) {
+			System.out.println(ae.getPosition() + "nisse");
+		}
 	}
 	
 	@Override
@@ -58,7 +70,7 @@ public class Sword implements Weapon {
 	public void paint(Graphics2D g2d) {
 		p = player.getPosition();
 		
-		if(player.getMouseDown() || animation != 0)
+		if(animation != 0)
 			Animation();
 		
 		g2d.setColor(Color.GRAY);

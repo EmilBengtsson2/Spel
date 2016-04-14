@@ -2,9 +2,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
-public class Enemy extends AnimateEntity {	
+public class Enemy extends HostileEntity {	
 
 	private Player player;
 	private Random rdm;
@@ -39,10 +41,14 @@ public class Enemy extends AnimateEntity {
 		} else {
 			position.setY(position.getY() + speed);
 		}
-		
-		
-
-		
+	}
+	
+	//Kollar om en kon skär gubbens hitbox
+	@Override
+	public AnimateEntity checkArcIntersection(Arc2D.Double arc) {
+		if(arc.intersects(new Rectangle2D.Double(position.getX()-20+5, position.getY()+35-25, 30, 90)))
+			return this;
+		return null;
 	}
 
 	@Override
@@ -54,16 +60,17 @@ public class Enemy extends AnimateEntity {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		g2d.setColor(Color.YELLOW);
-		g2d.fillOval((int)x, (int)y, 40, 70);
+		g2d.fillOval((int)x-20, (int)y+35, 40, 70);
 		
 		g2d.setColor(Color.RED);
-		g2d.fillOval((int)x +8, (int)y+20, 8, 8);
-		g2d.fillOval((int)x +25, (int)y+20, 8, 8);
+		g2d.fillOval((int)x +8-20, (int)y+20+35, 8, 8);
+		g2d.fillOval((int)x +25-20, (int)y+20+35, 8, 8);
 		
 		g2d.setColor(Color.BLACK);
-		g2d.fillRect((int)x - 5, (int)y, 50, 10);
-		g2d.fillRect((int)x +5, (int)y-30, 30, 40);
+		g2d.fillRect((int)x - 5-20, (int)y+35, 50, 10);
+		g2d.fillRect((int)x +5-20, (int)y-30+35, 30, 40);
 		
+		g2d.drawRect((int)position.getX()-20+5, (int)position.getY()+35-25, 30, 90);
 	}
 	
 	

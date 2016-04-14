@@ -2,6 +2,8 @@ import java.awt.Toolkit;
 
 public class Engine implements Runnable {
 	
+	//Runnable har med trådhantering att göra, här används dock bara en tråd
+	
 	private Thread t;
 	private Ram ram;
 	private Display display;
@@ -29,6 +31,7 @@ public class Engine implements Runnable {
 		t.start();
 	}
 	
+	//Fullskärm (typ)
 	public void setFullscreen(boolean fullscreen) {
 		ram.setFullscreen(fullscreen);
 		display.setSize(Toolkit.getDefaultToolkit().getScreenSize());
