@@ -4,6 +4,7 @@ public abstract class AnimateEntity {
 	
 	protected double speed;
 	protected Position position;
+	protected int health;
 	
 	public AnimateEntity(double speed, int x, int y) {
 		this.speed = speed;

@@ -16,6 +16,7 @@ public class HatEnemy extends HostileEntity {
 		super(speed, x, y);
 		this.player = player;
 		rdm = new Random();
+		health = 2;
 		
 		
 	}

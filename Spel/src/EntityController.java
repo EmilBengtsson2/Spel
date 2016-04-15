@@ -48,7 +48,7 @@ public class EntityController {
 	private void createEntities(PlayerListener listener) {
 		// Player
 		Player player = new Player(1.5, 600, 450, listener);
-		player.setWeapon(new Sword(player, this));
+		player.setWeapon(new Spear(player, this)); //Här byter man vapen
 		allEntities.add(player);
 
 		// Enemy 1

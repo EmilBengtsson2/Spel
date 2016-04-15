@@ -15,6 +15,7 @@ public class Player extends AnimateEntity {
 		super(speed, x, y);
 		this.listener = listener;
 		mousePos = listener.getMousePos();
+		health = 5;
 	}
 
 	public void setWeapon(Weapon weapon) {
