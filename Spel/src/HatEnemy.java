@@ -27,8 +27,8 @@ public class HatEnemy extends HostileEntity {
 		
 		int teleport = rdm.nextInt(1000);
 		if(teleport == 999) {
-			position.setX(rdm.nextInt(500));
-			position.setY(rdm.nextInt(500));
+			position.setX(rdm.nextInt(1500));
+			position.setY(rdm.nextInt(1000));
 		}
 
 		if (dx > 0) {
