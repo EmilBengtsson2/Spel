@@ -6,13 +6,13 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
-public class Enemy extends HostileEntity {	
+public class HatEnemy extends HostileEntity {	
 
 	private Player player;
 	private Random rdm;
 	
 
-	public Enemy(double speed, int x, int y, Player player) {
+	public HatEnemy(double speed, int x, int y, Player player) {
 		super(speed, x, y);
 		this.player = player;
 		rdm = new Random();

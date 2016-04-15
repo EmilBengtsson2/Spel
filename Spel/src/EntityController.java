@@ -45,11 +45,11 @@ public class EntityController {
 		allEntities.add(player);
 		
 		//Enemy 1
-		Enemy enemy1 = new Enemy (0.5, 600, 300, player);		
+		HatEnemy enemy1 = new HatEnemy (0.5, 600, 300, player);		
 		allEntities.add(enemy1);
 		
 		//Enemy 2
-		Enemy enemy2 = new Enemy (0.5, 100, 300, player);
+		HatEnemy enemy2 = new HatEnemy (0.5, 100, 300, player);
 		allEntities.add(enemy2);		
 	}
 }
