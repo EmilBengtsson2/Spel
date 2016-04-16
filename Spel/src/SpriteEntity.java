@@ -4,7 +4,7 @@ import java.util.Random;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class SpriteEntity extends Entity{
+public class SpriteEntity extends AnimateEntity{
 
 	protected Image image;
 	protected Random rdm;
@@ -12,7 +12,7 @@ public class SpriteEntity extends Entity{
 	protected double speed;
 
 	public SpriteEntity(double speed, int x, int y, ImageIcon icon) {
-		super(x, y);
+		super(speed, x, y);
 		this.speed = speed;
 		rdm = new Random();
 		movementCounter = 0;

@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public class EntityController {
 
-	private ArrayList<Entity> allEntities;
+	private ArrayList<AnimateEntity> allEntities;
 	private ArrayList<Entity> inanimateEntities;
 
 	public EntityController(PlayerListener listener) {
-		allEntities = new ArrayList<Entity>();
+		allEntities = new ArrayList<AnimateEntity>();
 		inanimateEntities = new ArrayList<Entity>();		
 		createEntities(listener);
 		
 	}
 
 	public void update() {
-		for (Entity e : allEntities) {
+		for (AnimateEntity e : allEntities) {
 			e.action();
 		}
 	}
 
 	public void paintEntity(Graphics g) {
-		for (Entity e : allEntities) {
+		for (AnimateEntity e : allEntities) {
 			e.paint(g);
 		}
 		for (Entity i : inanimateEntities) {
