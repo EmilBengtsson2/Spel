@@ -32,12 +32,6 @@ public class HatEnemy extends HostileEntity {
 		Position oldPosition = new Position(position.getX(), position.getY());
 		double dx = position.getX()-player.getPosition().getX();
 		double dy = position.getY()-player.getPosition().getY();
-		
-		int teleport = rdm.nextInt(1000);
-		if(teleport == 999) {
-			position.setX(rdm.nextInt(1500));
-			position.setY(rdm.nextInt(1000));
-		}
 
 		if (dx > 0) {
 			position.setX(position.getX() - speed);
@@ -49,6 +43,7 @@ public class HatEnemy extends HostileEntity {
 		} else {
 			position.setY(position.getY() + speed);
 		}
+		handleObjectCollision(oldPosition);
 		handleEntityCollision(oldPosition);
 	}
 	
