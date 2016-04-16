@@ -4,11 +4,19 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class RedSkull extends RandomMover{
-	private static Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/RedSkull.png")).getImage();
+
+	private static Image [] images = {	new ImageIcon(RandomMover.class.getResource("/PicResource/RedSkull1.png")).getImage(),
+										new ImageIcon(RandomMover.class.getResource("/PicResource/RedSkull2.png")).getImage(),
+										new ImageIcon(RandomMover.class.getResource("/PicResource/RedSkull3.png")).getImage() };
 	private final static double SPEED = 1.0;
+	private int animationCounter;
+	private int imageIndex;	
 	
 	public RedSkull(int x, int y, World world) {
-		super(SPEED, x, y, world, image.getWidth(null), image.getHeight(null));		
+		super(SPEED, x, y, world, images[0].getWidth(null), images[0].getHeight(null));		
+		animationCounter = 0;
+		imageIndex = 0;
+		Image currentImage = images[0];
 	}
 	
 	@Override
@@ -25,9 +33,17 @@ public class RedSkull extends RandomMover{
 	}
 	@Override
 	public void paint(Graphics g) {
-		g.drawImage(image, (int) position.getX(), (int) position.getY(), null);
+		switchImage();
+		g.drawImage(images[imageIndex], (int) position.getX(), (int) position.getY(), null);		
 	}
 	
+	private void switchImage() {
+		if (animationCounter >= 100) {
+			imageIndex = (imageIndex+1)%3;
+			animationCounter = 0;
+		}		
+		animationCounter++;		
+	}
 	
 
 }
