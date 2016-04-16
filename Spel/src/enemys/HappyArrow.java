@@ -1,7 +1,11 @@
+package enemys;
 import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+
+import others.RandomMover;
+import others.World;
 
 public class HappyArrow extends RandomMover{
 	private static Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/DoubleArrow.png")).getImage();

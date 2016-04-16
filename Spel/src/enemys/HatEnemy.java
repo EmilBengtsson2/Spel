@@ -1,3 +1,4 @@
+package enemys;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -5,6 +6,11 @@ import java.awt.RenderingHints;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
+
+import entitys.AnimateEntity;
+import entitys.HostileEntity;
+import others.Player;
+import others.World;
 
 public class HatEnemy extends HostileEntity {	
 

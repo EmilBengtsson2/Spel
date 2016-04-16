@@ -1,4 +1,7 @@
+package entitys;
 import java.awt.Graphics;
+
+import others.World;
 
 public abstract class AnimateEntity extends Entity{
 	

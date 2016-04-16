@@ -1,4 +1,8 @@
+package entitys;
 import java.awt.Graphics;
+
+import others.Position;
+import others.World;
 
 public abstract class Entity {			
 		

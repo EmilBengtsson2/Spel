@@ -1,8 +1,9 @@
-import java.awt.Graphics;
+package others;
 import java.awt.geom.Arc2D.Double;
 import java.util.Random;
-import java.awt.Image;
-import javax.swing.ImageIcon;
+
+import entitys.AnimateEntity;
+import entitys.HostileEntity;
 
 public abstract class RandomMover extends HostileEntity{
 	

@@ -1,5 +1,8 @@
+package entitys;
 import java.awt.Graphics;
 import java.awt.geom.Arc2D.Double;
+
+import others.World;
 
 public abstract class HostileEntity extends AnimateEntity{
 
