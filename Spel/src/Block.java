@@ -2,7 +2,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class Block extends InanimateEntity {
+public class Block extends Entity {
 	
 	private Image image;
 	

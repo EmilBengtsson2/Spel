@@ -1,10 +1,10 @@
 import java.awt.Graphics;
 
-public abstract class InanimateEntity {	
+public abstract class Entity {	
 		
 		protected Position position;
 		
-		public InanimateEntity(int x, int y) {			
+		public Entity(int x, int y) {			
 			position = new Position(x, y);
 		}
 		

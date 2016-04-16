@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class EntityController {
 
 	private ArrayList<AnimateEntity> allEntities;
-	private ArrayList<InanimateEntity> inanimateEntities;
+	private ArrayList<Entity> inanimateEntities;
 
 	public EntityController(PlayerListener listener) {
 		allEntities = new ArrayList<AnimateEntity>();
-		inanimateEntities = new ArrayList<InanimateEntity>();		
+		inanimateEntities = new ArrayList<Entity>();		
 		createEntities(listener);
 		
 	}
@@ -24,7 +24,7 @@ public class EntityController {
 		for (AnimateEntity e : allEntities) {
 			e.paint(g);
 		}
-		for (InanimateEntity i : inanimateEntities) {
+		for (Entity i : inanimateEntities) {
 			i.paint(g);
 
 		}
