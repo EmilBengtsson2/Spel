@@ -31,7 +31,6 @@ public class RedSkull extends RandomMover {
 
 	@Override
 	public void action() {	
-		Position oldPosition = new Position(position.getX(), position.getY());
 		if (movementCounter == 0) {
 			xDirection = rdm.nextInt(3) - 1;
 			yDirection = rdm.nextInt(3) - 1;
@@ -40,8 +39,6 @@ public class RedSkull extends RandomMover {
 		position.setX(position.getX() + xDirection * speed);
 		position.setY(position.getY() + yDirection * speed);
 		movementCounter--;
-		handleObjectCollision(oldPosition);
-		handleEntityCollision(oldPosition);
 		
 
 	}

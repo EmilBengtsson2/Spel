@@ -43,14 +43,13 @@ public class Player extends AnimateEntity {
 	
 	@Override
 	public void action() {
-		Position oldPosition = new Position(position.getX(), position.getY());
+		
 		position.setX(position.getX() + speed * listener.getHorizontalMult());
 		position.setY(position.getY() + speed * listener.getVerticalMult());
 		mousePos = listener.getMousePos();
 		if(listener.getMouseDown())
 			weapon.Animation();
-		handleObjectCollision(oldPosition);
-		handleEntityCollision(oldPosition);
+
 	}
 	@Override
 	public void paint(Graphics g) {

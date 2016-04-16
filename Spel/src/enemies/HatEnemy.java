@@ -29,7 +29,7 @@ public class HatEnemy extends HostileEntity {
 
 	@Override
 	public void action() {
-		Position oldPosition = new Position(position.getX(), position.getY());
+		
 		double dx = position.getX()-player.getPosition().getX();
 		double dy = position.getY()-player.getPosition().getY();
 
@@ -43,8 +43,7 @@ public class HatEnemy extends HostileEntity {
 		} else {
 			position.setY(position.getY() + speed);
 		}
-		handleObjectCollision(oldPosition);
-		handleEntityCollision(oldPosition);
+
 	}
 	
 	//Kollar om en kon skär gubbens hitbox

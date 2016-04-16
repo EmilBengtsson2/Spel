@@ -21,7 +21,10 @@ public class EntityController {
 
 	public void updateEntity() {
 		for (AnimateEntity e : allEntities) {
+			Position oldPosition = new Position(e.getPosition().getX(), e.getPosition().getY());
 			e.action();
+			e.handleObjectCollision(oldPosition);
+			e.handleEntityCollision(oldPosition);
 		}
 	}
 
