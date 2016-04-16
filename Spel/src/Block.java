@@ -4,22 +4,16 @@ import javax.swing.ImageIcon;
 
 public class Block extends Entity {
 	
-	private Image image;
+	private static Image image = new ImageIcon(Block.class.getResource("/PicResource/Block.png")).getImage();
 	
-	public Block(int x, int y) {
-		super (x, y);		
-		initializeImage();
-	}
-	
-	private void initializeImage() {
-		ImageIcon icon = new ImageIcon(Block.class.getResource("/PicResource/Block.png"));
-		image = icon.getImage();
-	}
+	public Block(int x, int y, World world) {
+		super (x, y, world,image.getWidth(null), image.getHeight(null));		
+		
+	}	
 
 	@Override
 	public void paint(Graphics g) {
-		g.drawImage(image, (int)position.getX(), (int)position.getY(), null);
-		
+		g.drawImage(image, (int)position.getX(), (int)position.getY(), null);		
 	}
 
 }

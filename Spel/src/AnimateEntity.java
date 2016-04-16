@@ -5,8 +5,8 @@ public abstract class AnimateEntity extends Entity{
 	protected double speed;
 	protected int health;
 	
-	public AnimateEntity(double speed, int x, int y) {
-		super(x, y);
+	public AnimateEntity(double speed, int x, int y, World world, int width, int height) {
+		super(x, y, world, width, height);
 		this.speed = speed;
 	}
 	

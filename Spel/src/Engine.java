@@ -1,3 +1,5 @@
+
+
 import java.awt.Toolkit;
 
 public class Engine implements Runnable {
@@ -7,7 +9,8 @@ public class Engine implements Runnable {
 	private Thread t;
 	private Ram ram;
 	private Display display;
-	private EntityController entity;
+	private World world;
+
 	private PlayerListener listener;
 	private boolean running;
 	private final int FPS_CAP = 150;
@@ -17,8 +20,8 @@ public class Engine implements Runnable {
 		this.display = display;
 		this.ram = ram;
 		t = new Thread(this);
-		listener = new PlayerListener(this);
-		entity = new EntityController(listener);
+		listener = new PlayerListener(this);		
+		world = new World(listener);
 	}
 
 	public void start() {
@@ -62,13 +65,13 @@ public class Engine implements Runnable {
 			
 			//Efter denna kommentaren skrivs allt spelrelaterat som ska hända i varje "frame/cykel"
 			///////////////////////////////////////////////////////////////////////////////////////
-			entity.update();
+			world.updateWorld();
 			repaint();
 			///////////////////////////////////////////////////////////////////////////////////////
 		}
 	}
 
 	private void repaint() {
-		display.paint(fps, entity);
+		display.paint(fps, world);
 	}
 }

@@ -3,8 +3,8 @@ import java.awt.geom.Arc2D.Double;
 
 public abstract class HostileEntity extends AnimateEntity{
 
-	public HostileEntity(double speed, int x, int y) {
-		super(speed, x, y);
+	public HostileEntity(double speed, int x, int y, World world, int width, int height) {
+		super(speed, x, y, world, width, height);
 	}
 
 	@Override

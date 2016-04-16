@@ -1,6 +1,11 @@
+
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+
+
 import java.awt.image.BufferStrategy;
 
 public class Display extends Canvas{
@@ -17,7 +22,7 @@ public class Display extends Canvas{
 		bs = this.getBufferStrategy();
 	}
 	
-	public void paint(int fpsCounter, EntityController entity) {
+	public void paint(int fpsCounter, World world) {
 		do {
 			do {
 				Graphics g = bs.getDrawGraphics();
@@ -29,7 +34,7 @@ public class Display extends Canvas{
 				//////////////////////////////////////////////////////////////////////////////
 				
 				//Ritar allt som inte är bakgrunden (spelare, så småning om npcs kanske, osv.)
-				entity.paintEntity(g);
+				world.paintWorld(g);
 				
 				g.setColor(Color.BLACK);
 				g.drawString("" + fpsCounter, 2, 12);

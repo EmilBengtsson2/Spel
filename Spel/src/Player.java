@@ -11,8 +11,8 @@ public class Player extends AnimateEntity {
 	private Weapon weapon;
 	private double rotation;
 	
-	public Player(double speed, int x, int y, PlayerListener listener) {
-		super(speed, x, y);
+	public Player(double speed, int x, int y, PlayerListener listener, World world) {
+		super(speed, x, y, world, 40, 40);
 		this.listener = listener;
 		mousePos = listener.getMousePos();
 		health = 5;

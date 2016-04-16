@@ -1,13 +1,17 @@
+import java.awt.Graphics;
+import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
-public class HappyArrow extends SpriteEntity{
-	private static ImageIcon icon = new ImageIcon(SpriteEntity.class.getResource("/PicResource/DoubleArrow.png"));
+public class HappyArrow extends RandomMover{
+	private static Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/DoubleArrow.png")).getImage();
+	private final static double SPEED = 0.5;
 	
-	public HappyArrow(double speed, int x, int y) {
-		super(speed, x, y, icon);
+	public HappyArrow(int x, int y, World world) {
+		super(SPEED, x, y, world, image.getWidth(null), image.getHeight(null));
 		
 	}
-	
+	@Override
 	public void action(){
 		if (movementCounter == 0) {
 			xDirection = rdm.nextInt(3) - 1;
@@ -17,5 +21,8 @@ public class HappyArrow extends SpriteEntity{
 		
 		movementCounter--;
 	}
-
+	@Override
+	public void paint(Graphics g) {
+		g.drawImage(image, (int) position.getX(), (int) position.getY(), null);
+	}
 }
