@@ -1,7 +1,7 @@
 import javax.swing.ImageIcon;
 
 public class HappyArrow extends SpriteEntity{
-	private static ImageIcon icon = new ImageIcon(SpriteEntity.class.getResource("/PicResource/HappyArrow.png"));
+	private static ImageIcon icon = new ImageIcon(SpriteEntity.class.getResource("/PicResource/DoubleArrow.png"));
 	
 	public HappyArrow(double speed, int x, int y) {
 		super(speed, x, y, icon);

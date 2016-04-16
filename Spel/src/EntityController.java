@@ -61,7 +61,7 @@ public class EntityController {
 
 		// SpriteEnemy
 		RedSkull rs = new RedSkull(2, 150, 150);
-		HappyArrow happy = new HappyArrow(0.5,200,200);
+		HappyArrow happy = new HappyArrow(0.5,300,300);
 		allEntities.add(rs);
 		allEntities.add(happy);
 		// Block, 63 pixels wide atm.
