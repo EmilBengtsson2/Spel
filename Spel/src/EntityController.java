@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public class EntityController {
 
-	private ArrayList<AnimateEntity> allEntities;
+	private ArrayList<Entity> allEntities;
 	private ArrayList<Entity> inanimateEntities;
 
 	public EntityController(PlayerListener listener) {
-		allEntities = new ArrayList<AnimateEntity>();
+		allEntities = new ArrayList<Entity>();
 		inanimateEntities = new ArrayList<Entity>();		
 		createEntities(listener);
 		
 	}
 
 	public void update() {
-		for (AnimateEntity e : allEntities) {
+		for (Entity e : allEntities) {
 			e.action();
 		}
 	}
 
 	public void paintEntity(Graphics g) {
-		for (AnimateEntity e : allEntities) {
+		for (Entity e : allEntities) {
 			e.paint(g);
 		}
 		for (Entity i : inanimateEntities) {
@@ -33,7 +33,7 @@ public class EntityController {
 	// Returns all enemies who got hit by the weapon (intersected the arc)
 	public ArrayList<AnimateEntity> getMeleeHits(Arc2D.Double arc) {
 		ArrayList<AnimateEntity> temp = new ArrayList<AnimateEntity>();
-		for (AnimateEntity e : allEntities) {
+		for (Entity e : allEntities) {
 			if (e instanceof HostileEntity) {
 				AnimateEntity ae = ((HostileEntity) e).checkArcIntersection(arc);
 				if (ae != null)
@@ -60,8 +60,8 @@ public class EntityController {
 		allEntities.add(enemy2);
 
 		// SpriteEnemy
-		SpriteEntity sp = new SpriteEntity(1.0, 300, 300);
-		allEntities.add(sp);
+		RedSkull rs = new RedSkull(2, 150, 150);
+		allEntities.add(rs);
 
 		// Block, 63 pixels wide atm.
 		int startX = 63;		

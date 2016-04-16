@@ -13,6 +13,8 @@ public abstract class Entity {
 		}
 		
 		public abstract void paint(Graphics g);
+		
+		public abstract void action();
 	}
 
 

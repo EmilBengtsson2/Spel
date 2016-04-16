@@ -1,21 +1,21 @@
 import java.awt.Graphics;
 import java.awt.geom.Arc2D.Double;
-import java.awt.image.ImageObserver;
 import java.util.Random;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class SpriteEntity extends HostileEntity {
+public class SpriteEntity extends Entity{
 
-	private Image image;
-	private Random rdm;
-	private int movementCounter, xDirection, yDirection;
+	protected Image image;
+	protected Random rdm;
+	protected int movementCounter, xDirection, yDirection;
+	protected double speed;
 
-	public SpriteEntity(double speed, int x, int y) {
-		super(speed, x, y);
+	public SpriteEntity(double speed, int x, int y, ImageIcon icon) {
+		super(x, y);
+		this.speed = speed;
 		rdm = new Random();
 		movementCounter = 0;
-		ImageIcon icon = new ImageIcon(SpriteEntity.class.getResource("/PicResource/RedSkull.png"));
 		image = icon.getImage();
 	}
 
@@ -38,7 +38,7 @@ public class SpriteEntity extends HostileEntity {
 
 	}
 
-	@Override
+	
 	public AnimateEntity checkArcIntersection(Double arc) {
 		// TODO Auto-generated method stub
 		return null;
