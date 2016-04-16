@@ -1,6 +1,11 @@
+package others;
 import java.awt.Graphics;
 import java.awt.geom.Arc2D;
 import java.util.ArrayList;
+
+import entitys.AnimateEntity;
+import entitys.Entity;
+import entitys.HostileEntity;
 
 public class EntityController {
 

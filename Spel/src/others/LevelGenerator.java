@@ -1,3 +1,8 @@
+package others;
+import enemys.HappyArrow;
+import enemys.HatEnemy;
+import enemys.RedSkull;
+import weapons.Spear;
 
 public class LevelGenerator {
 	

@@ -1,3 +1,4 @@
+package weapons;
 import java.awt.Graphics2D;
 
 public interface Weapon {

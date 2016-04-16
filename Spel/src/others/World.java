@@ -1,5 +1,9 @@
+package others;
 import java.awt.Graphics;
 import java.util.ArrayList;
+
+import entitys.AnimateEntity;
+import entitys.Entity;
 
 public class World {
 	

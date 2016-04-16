@@ -1,8 +1,11 @@
+package others;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.geom.Arc2D.Double;
+
+import entitys.AnimateEntity;
+import weapons.Weapon;
 
 public class Player extends AnimateEntity {
 	

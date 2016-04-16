@@ -1,8 +1,14 @@
+package weapons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.geom.Arc2D;
 import java.util.ArrayList;
+
+import entitys.AnimateEntity;
+import others.EntityController;
+import others.Player;
+import others.Position;
 
 public class Spear implements Weapon{
 	private Position p;

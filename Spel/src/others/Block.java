@@ -1,6 +1,10 @@
+package others;
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
+
+import entitys.Entity;
 
 public class Block extends Entity {
 	
