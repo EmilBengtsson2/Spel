@@ -1,7 +1,9 @@
-package others;
+package framework;
 
 
 import java.awt.Toolkit;
+
+import others.World;
 
 public class Engine implements Runnable {
 	

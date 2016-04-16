@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 import java.util.ArrayList;
 
-import entitys.AnimateEntity;
+import entities.AnimateEntity;
 import others.EntityController;
 import others.Player;
 import others.Position;

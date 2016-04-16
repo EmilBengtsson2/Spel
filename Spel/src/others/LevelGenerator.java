@@ -1,7 +1,8 @@
 package others;
-import enemys.HappyArrow;
-import enemys.HatEnemy;
-import enemys.RedSkull;
+import enemies.HappyArrow;
+import enemies.HatEnemy;
+import enemies.RedSkull;
+import framework.PlayerListener;
 import weapons.Spear;
 
 public class LevelGenerator {
@@ -29,7 +30,7 @@ public class LevelGenerator {
 		world.getAnimateEntities().add(enemy2);
 
 		// RandomMovers
-		RedSkull rs = new RedSkull(400, 400, world);
+		RedSkull rs = new RedSkull(400, 800, world);
 		HappyArrow happy = new HappyArrow(300,300, world);
 		
 		world.getAnimateEntities().add(rs);
@@ -38,9 +39,11 @@ public class LevelGenerator {
 		// Block, 63 pixels wide, height 59 atm.
 		int startX = 63;		
 		int startY = 59;
-		for (int i = 0; i < 30; i++) {
+		for (int i = 1; i < 30; i++) {
 			world.getObjects().add(new Block(startX*i, 0, world));		
 			world.getObjects().add(new Block(0, startY*i, world));
+			world.getObjects().add(new Block(startX*i, 1000, world));
+			world.getObjects().add(new Block(1500, startY*i, world));
 		}
 		
 		

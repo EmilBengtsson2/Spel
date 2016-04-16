@@ -1,10 +1,12 @@
-package others;
+package framework;
 
 
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+
+import others.World;
 
 public class Display extends Canvas{
 	

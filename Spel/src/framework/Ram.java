@@ -1,4 +1,4 @@
-package others;
+package framework;
 
 
 import javax.swing.JFrame;

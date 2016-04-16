@@ -1,9 +1,11 @@
-package others;
+package framework;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+
+import others.Position;
 
 public class PlayerListener implements KeyListener, MouseListener, MouseMotionListener{
 	

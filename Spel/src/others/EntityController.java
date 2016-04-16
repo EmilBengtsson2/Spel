@@ -3,9 +3,9 @@ import java.awt.Graphics;
 import java.awt.geom.Arc2D;
 import java.util.ArrayList;
 
-import entitys.AnimateEntity;
-import entitys.Entity;
-import entitys.HostileEntity;
+import entities.AnimateEntity;
+import entities.Entity;
+import entities.HostileEntity;
 
 public class EntityController {
 

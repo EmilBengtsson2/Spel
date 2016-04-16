@@ -1,4 +1,4 @@
-package entitys;
+package entities;
 import java.awt.Graphics;
 import java.awt.geom.Arc2D.Double;
 
@@ -10,8 +10,6 @@ public abstract class HostileEntity extends AnimateEntity{
 		super(speed, x, y, world, width, height);
 	}
 
-	@Override
-	public abstract void action();
 
 	@Override
 	public abstract void paint(Graphics g);

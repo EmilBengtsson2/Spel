@@ -4,7 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import entitys.Entity;
+import entities.Entity;
 
 public class Block extends Entity {
 	

@@ -4,7 +4,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-import entitys.AnimateEntity;
+import entities.AnimateEntity;
+import framework.PlayerListener;
 import weapons.Weapon;
 
 public class Player extends AnimateEntity {

@@ -1,4 +1,4 @@
-package enemys;
+package enemies;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -7,9 +7,10 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
-import entitys.AnimateEntity;
-import entitys.HostileEntity;
+import entities.AnimateEntity;
+import entities.HostileEntity;
 import others.Player;
+import others.Position;
 import others.World;
 
 public class HatEnemy extends HostileEntity {	
@@ -28,6 +29,7 @@ public class HatEnemy extends HostileEntity {
 
 	@Override
 	public void action() {
+		Position oldPosition = new Position(position.getX(), position.getY());
 		double dx = position.getX()-player.getPosition().getX();
 		double dy = position.getY()-player.getPosition().getY();
 		
@@ -47,6 +49,7 @@ public class HatEnemy extends HostileEntity {
 		} else {
 			position.setY(position.getY() + speed);
 		}
+		handleEntityCollision(oldPosition);
 	}
 	
 	//Kollar om en kon skär gubbens hitbox
