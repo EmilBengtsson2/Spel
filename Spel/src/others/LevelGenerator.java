@@ -24,10 +24,7 @@ public class LevelGenerator {
 		// Enemy 1
 		HatEnemy enemy1 = new HatEnemy(600, 300, player, world);
 		world.getAnimateEntities().add(enemy1);
-
-		// Enemy 2
-		HatEnemy enemy2 = new HatEnemy(100, 300, player, world);
-		world.getAnimateEntities().add(enemy2);
+		
 
 		// RandomMovers
 		RedSkull rs = new RedSkull(400, 800, world);

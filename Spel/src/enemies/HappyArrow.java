@@ -9,7 +9,7 @@ import others.RandomMover;
 import others.World;
 
 public class HappyArrow extends RandomMover{
-	private static Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/DoubleArrow.png")).getImage();
+	private static Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/HappyArrow.gif")).getImage();
 	private final static double SPEED = 1.0;
 	
 	public HappyArrow(int x, int y, World world) {

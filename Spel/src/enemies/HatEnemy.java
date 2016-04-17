@@ -2,18 +2,24 @@ package enemies;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 import entities.AnimateEntity;
 import entities.HostileEntity;
 import others.Player;
 import others.Position;
+import others.RandomMover;
 import others.World;
 
 public class HatEnemy extends HostileEntity {	
+	
+	private Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/HatEnemy.gif")).getImage();
 
 	private Player player;
 	private Random rdm;
@@ -21,7 +27,7 @@ public class HatEnemy extends HostileEntity {
 	
 
 	public HatEnemy(int x, int y, Player player, World world) {
-		super(SPEED, x, y, world, 30, 90);
+		super(SPEED, x, y, world, 100, 120);
 		this.player = player;
 		rdm = new Random();
 		health = 2;		
@@ -56,24 +62,7 @@ public class HatEnemy extends HostileEntity {
 
 	@Override
 	public void paint(Graphics g) {
-		double x = position.getX();
-		double y = position.getY();
-		
-		Graphics2D g2d = (Graphics2D) g.create();
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		
-		g2d.setColor(Color.YELLOW);
-		g2d.fillOval((int)x-20, (int)y+35, 40, 70);
-		
-		g2d.setColor(Color.RED);
-		g2d.fillOval((int)x +8-20, (int)y+20+35, 8, 8);
-		g2d.fillOval((int)x +25-20, (int)y+20+35, 8, 8);
-		
-		g2d.setColor(Color.BLACK);
-		g2d.fillRect((int)x - 5-20, (int)y+35, 50, 10);
-		g2d.fillRect((int)x +5-20, (int)y-30+35, 30, 40);
-		
-		g2d.drawRect((int)position.getX()-15, (int)position.getY()+10, 30, 90);
+		g.drawImage(image, (int)position.getX(), (int)position.getY(), null);
 	}
 	
 	

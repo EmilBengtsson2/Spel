@@ -17,7 +17,7 @@ public abstract class AnimateEntity extends Entity{
 	public abstract void action();
 	
 	public void handleObjectCollision(Position oldPosition) {
-		Entity entity =world.getIntersectingObject(this);
+		Entity entity =getIntersectingObject();
 		if (entity!=null) {
 			position.setX(oldPosition.getX());
 			position.setY(oldPosition.getY());			
@@ -25,7 +25,7 @@ public abstract class AnimateEntity extends Entity{
 	}
 	
 	public void handleEntityCollision(Position oldPosition){
-		Entity entity = world.getIntersectingEntity(this);
+		Entity entity =getIntersectingEntity();
 		if (entity!=null) {
 			position.setX(oldPosition.getX());
 			position.setY(oldPosition.getY());			
