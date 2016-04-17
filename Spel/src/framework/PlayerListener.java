@@ -99,7 +99,7 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 		} else if(e.getKeyCode() == KeyEvent.VK_D) {
 			right = true;
 			horizontalMult = 1;
-		} else if(e.getKeyCode() == KeyEvent.VK_F11) {
+		} else if(e.getKeyCode() == KeyEvent.VK_0) {
 			if(fullscreen)
 				fullscreen = false;
 			else
