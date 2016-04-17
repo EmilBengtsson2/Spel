@@ -17,16 +17,13 @@ public class HappyArrow extends RandomMover{
 		
 	}
 	@Override
-	public void action(){
-		Position oldPosition = new Position(position.getX(), position.getY());
+	public void action(){		
 		if (movementCounter == 0) {
-			xDirection = rdm.nextInt(3) - 1;
-			movementCounter = 100;
+			xDirection = rdm.nextInt(2) *2 -1;
+			movementCounter = 150;
 		}
 		position.setX(position.getX() + xDirection * speed);		
-		movementCounter--;
-		handleObjectCollision(oldPosition);
-		handleEntityCollision(oldPosition);
+		movementCounter--;		
 	}
 	@Override
 	public void paint(Graphics g) {

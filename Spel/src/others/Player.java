@@ -2,7 +2,10 @@ package others;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
+
+import javax.swing.ImageIcon;
 
 import entities.AnimateEntity;
 import framework.PlayerListener;
@@ -10,13 +13,15 @@ import weapons.Weapon;
 
 public class Player extends AnimateEntity {
 	
+	
+	private static Image image = new ImageIcon(Player.class.getResource("/PicResource/Player.gif")).getImage();
 	private PlayerListener listener;
 	private Position mousePos;
 	private Weapon weapon;
 	private double rotation;
 	
 	public Player(double speed, int x, int y, PlayerListener listener, World world) {
-		super(speed, x, y, world, 40, 40);
+		super(speed, x, y, world, image.getWidth(null), image.getHeight(null));
 		this.listener = listener;
 		mousePos = listener.getMousePos();
 		health = 5;
@@ -53,8 +58,8 @@ public class Player extends AnimateEntity {
 	}
 	@Override
 	public void paint(Graphics g) {
-		double x = position.getX();
-		double y = position.getY();
+		double x = position.getX() + (getWidth()/2);
+		double y = position.getY() + (getHeight()/2);
 		double mX = mousePos.getX();
 		double mY = mousePos.getY();
 		
@@ -84,9 +89,10 @@ public class Player extends AnimateEntity {
 		
 		if(weapon != null)
 			weapon.paint(g2d);
+		g2d.drawImage(image, (int)position.getX(), (int)position.getY(), width, height, null);
 		
-		g2d.setColor(Color.BLUE);
-		g2d.fillRect((int)position.getX()-20, (int)position.getY()-20, 40, 40);
+		//g2d.setColor(Color.BLUE);
+		//g2d.fillRect((int)position.getX()-20, (int)position.getY()-20, 40, 40);
 		
 		g2d.dispose();
 	}

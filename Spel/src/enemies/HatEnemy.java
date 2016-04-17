@@ -19,7 +19,7 @@ import others.World;
 
 public class HatEnemy extends HostileEntity {	
 	
-	private Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/HatEnemy.gif")).getImage();
+	private static Image image = new ImageIcon(RandomMover.class.getResource("/PicResource/HatEnemy.gif")).getImage();
 
 	private Player player;
 	private Random rdm;
@@ -27,7 +27,7 @@ public class HatEnemy extends HostileEntity {
 	
 
 	public HatEnemy(int x, int y, Player player, World world) {
-		super(SPEED, x, y, world, 100, 120);
+		super(SPEED, x, y, world, image.getWidth(null), image.getHeight(null));
 		this.player = player;
 		rdm = new Random();
 		health = 2;		
