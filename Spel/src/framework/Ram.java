@@ -18,7 +18,7 @@ public class Ram extends JFrame{
 		title = "Fönstrets namn";
 		
 		//"Målarduken"
-		display = new Display(WIDTH, HEIGHT);
+		display = new Display(WIDTH*2, HEIGHT*2);
 		
 		//I denna klassen finns "gameloopen"
 		engine = new Engine(display, this);
@@ -29,7 +29,7 @@ public class Ram extends JFrame{
 		//lägger in "målarduken"
 		this.add(display);
 		//pack() "packar" "ramen" runt det som ligger i den
-		this.pack();
+		this.setSize(WIDTH, HEIGHT);
 		//Gör ramen synlig
 		this.setVisible(true);
 		this.setResizable(false);

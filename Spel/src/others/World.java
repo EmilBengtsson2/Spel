@@ -12,7 +12,7 @@ public class World {
 	private EntityController entityController;
 
 	public World(PlayerListener listener) {
-		entityController = new EntityController(this);
+		entityController = new EntityController(listener);
 		createWorld(listener);
 	}
 

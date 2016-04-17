@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import entities.AnimateEntity;
 import entities.Entity;
 import entities.HostileEntity;
+import framework.PlayerListener;
 
 public class EntityController {
 
-	private World world;
+	private PlayerListener listener;
 	private ArrayList<AnimateEntity> allEntities;
 	private ArrayList<Entity> objects;
 
-	public EntityController(World world) {
-		this.world = world;
+	public EntityController(PlayerListener listener) {
+		this.listener = listener;
 		allEntities = new ArrayList<AnimateEntity>();		
 		objects = new ArrayList<Entity>();			
 	}
@@ -29,6 +30,23 @@ public class EntityController {
 	}
 
 	public void paintEntity(Graphics g) {
+		double playerPosX, playerPosY;
+		for (AnimateEntity e : allEntities) {
+			if(e instanceof Player) {
+				int tX = 0, tY = 0;
+				playerPosX = e.getPosition().getX();
+				playerPosY = e.getPosition().getY();
+				if(playerPosX > 600 && playerPosX < 1800) {
+					tX = (int) -(playerPosX - 600);
+				}
+				if(playerPosY > 450 && playerPosY < 1350) {
+					tY = (int) -(playerPosY - 450);
+				}
+				g.translate(tX, tY);
+				listener.setTranslatedXY(tX, tY);
+				break;
+			}
+		}
 		for (AnimateEntity e : allEntities) {
 			e.paint(g);
 		}

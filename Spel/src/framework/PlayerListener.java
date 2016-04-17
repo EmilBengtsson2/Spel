@@ -10,7 +10,7 @@ import others.Position;
 public class PlayerListener implements KeyListener, MouseListener, MouseMotionListener{
 	
 	private boolean mouseDown, left, right, up, down;
-	private int horizontalMult, verticalMult;
+	private int horizontalMult, verticalMult, translatedX, translatedY;
 	private Position mousePos;
 	private Engine engine;
 	private boolean fullscreen;
@@ -18,7 +18,7 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 	public PlayerListener(Engine engine) {
 		this.engine = engine;
 		fullscreen = false;
-		horizontalMult = verticalMult = 0;
+		horizontalMult = verticalMult = translatedX = translatedY = 0;
 		mousePos = new Position(0, 0);
 	}
 	
@@ -36,6 +36,15 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 	
 	public Position getMousePos() {
 		return mousePos;
+	}
+	
+	public void setTranslatedXY(int x, int y) {
+		mousePos.setX(mousePos.getX() + translatedX);
+		mousePos.setY(mousePos.getY() + translatedY);
+		translatedX = x;
+		translatedY = y;
+		mousePos.setX(mousePos.getX() - translatedX);
+		mousePos.setY(mousePos.getY() - translatedY);
 	}
 
 	@Override
@@ -56,15 +65,15 @@ public class PlayerListener implements KeyListener, MouseListener, MouseMotionLi
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		mousePos.setX(e.getX());
-		mousePos.setY(e.getY());
+		mousePos.setX(e.getX() - translatedX);
+		mousePos.setY(e.getY() - translatedY);
 		mouseDown = true;
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		mousePos.setX(e.getX());
-		mousePos.setY(e.getY());
+		mousePos.setX(e.getX() - translatedX);
+		mousePos.setY(e.getY() - translatedY);
 	}
 
 	@Override
